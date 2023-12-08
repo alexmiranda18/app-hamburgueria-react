@@ -8,7 +8,7 @@ function myRoutes() {
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path='/command' element={<Order /> } />
+                <Route path='/order' element={<Order /> } />
             </Routes>
 
 

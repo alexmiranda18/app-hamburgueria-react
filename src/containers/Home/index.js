@@ -3,7 +3,7 @@ import { useNavigate } from "react-router"
 import H1 from '../../components/Title'
 import Button from '../../components/button';
 import axios from 'axios';
-import { Container, InputLabel, Input, Image } from "./styles";
+import { Container, InputLabel, Input, Image, ContainerItens,StyledInput } from "./styles";
 import Principal from '../../assets/principal.svg';
 
 
@@ -17,27 +17,28 @@ const App = () => {
 
   async function addNewOrder() {
     const { data: newOrder } = await axios.post("http://localhost:3001/command", { order: InputPedido.current.value, clientName: InputName.current.value });
-
+console.log()
     setOrders([...orders, newOrder]);
-    navigate('/usuarios');
+    navigate('/order');
   }
 
   return (
     <Container>
       <Image alt="Logo principal burguer" src={Principal} />
 
-      <H1>Faça seu pedido!</H1>
+      <ContainerItens isBlur={true}>
+        <H1>Faça seu pedido!</H1>
 
-      <InputLabel>Pedido</InputLabel>
-      <Input ref={InputPedido} placeholder="Faça seu pedido aqui!" />
+        <InputLabel className="left-align">Pedido</InputLabel>
+        <StyledInput ref={InputPedido} placeholder="Faça seu pedido aqui!" />
 
-      <InputLabel>Nome do Cliente</InputLabel>
-      <Input ref={InputName} placeholder="Seu Nome!" />
+        <InputLabel className="left-align">Nome do Cliente</InputLabel>
+        <Input ref={InputName} placeholder="Seu Nome!" />
 
-      <Button onClick={addNewOrder}>
-        Novo Pedido
-      </Button>
-
+        <Button onClick={addNewOrder}>
+          Novo Pedido
+        </Button>
+      </ContainerItens>
 
     </Container>
   );

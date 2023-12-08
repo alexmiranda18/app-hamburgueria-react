@@ -1,11 +1,17 @@
 import styled from "styled-components";
 
 export const H1 = styled.h1`
-font-style: normal;
-font-size: 34px;
+
+
 font-weight: bold;
-line-height: 40px;
+
 text-align: center;
 color: #FFFFFF;
-margin-bottom: 80px;
+margin-bottom: ${ props => props.isBack ? '30px' : '98px'};
+margin-top: ${ props => props.isBack && '36px'};
+
+font-size: 28px;
+font-style: normal;
+line-height: normal;
+
 `;
