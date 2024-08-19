@@ -16,7 +16,7 @@ const App = () => {
 
 
   async function addNewOrder() {
-    const { data: newOrder } = await axios.post("http://localhost:3001/command", { order: InputPedido.current.value, clientName: InputName.current.value });
+    const { data: newOrder } = await axios.post("https://fisrt-project-node-ttg1.vercel.app/command", { order: InputPedido.current.value, clientName: InputName.current.value });
 console.log()
     setOrders([...orders, newOrder]);
     navigate('/order');

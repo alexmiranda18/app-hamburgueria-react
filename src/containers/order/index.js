@@ -14,16 +14,16 @@ const Orders = () => {
 
 
   useEffect(() => {
-    async function fethUsers() {
-      const { data: newOrders } = await axios.get("http://localhost:3001/command");
+    async function fetchUsers() {
+      const { data: newOrders } = await axios.get("https://fisrt-project-node-ttg1.vercel.app/command");
       setOrders(newOrders);
     }
-    fethUsers();
+    fetchUsers();
   }, []);
 
 
   async function deleteUser(orderId) {
-    await axios.delete(`http://localhost:3001/command/${orderId}`);
+    await axios.delete(`https://fisrt-project-node-ttg1.vercel.app/command/${orderId}`);
     const newOrders = orders.filter((order) => order.id !== orderId)
     console.log()
 
